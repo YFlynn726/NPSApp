@@ -27,7 +27,7 @@ function getData(query, maxResults = 10) {
   const params = {
     key: apiKey,
     q: query,
-    part: 'snippet',
+    part: 'data',
     maxResults,
     parkCode: acad, dena
   };
