@@ -11,13 +11,13 @@ function formatQueryParams(params){
 }
 
 function displayResults(responseJson) {
-  //console.log(responseJson);
+  console.log(responseJson);
   $('#results-list').empty();
-  for (let i = 0; i < responseJson.items.length; i++){
+  for (let i = 0; i < responseJson.data.length; i++){
     $('#results-list').append(
-      `<li><h3>${responseJson.items[i].data.fullname}</h3>
-        <p>${responseJson.items[i].data.description}</p>
-        <p>${responseJson.items[i].data.URL}</p>
+      `<li><h3>${responseJson.data[i].name}</h3>
+        <p>${responseJson.data[i].description}</p>
+        <p>${responseJson.data[i].url}</p>
         </li>`
     );};
   $('#results').removeClass('hidden');
@@ -42,6 +42,7 @@ function getData(input, limit = 10) {
         return response.json();
       }
       throw new Error(response.statusText);
+      console.error(err);
     })
     .then(responseJson => displayResults(responseJson))
     .catch(err => {
