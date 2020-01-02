@@ -1,7 +1,8 @@
+/* eslint-disable no-undef */
 'use strict';
 
-//const apiKey = 'rFTc57REZXgLG3GyhDOGaXZyeXln31UGLRxhIxE8';
-const searchURL = 'https://developer.nps.gov/api/v1/parks?stateCode=NY%2COR&limit=10&api_key=yXFguw0bPT2fEHLjTMoQ0pLDdsv5PGJ4z8p4IobD';
+const apiKey = 'yXFguw0bPT2fEHLjTMoQ0pLDdsv5PGJ4z8p4IobD';
+const searchURL = 'https://developer.nps.gov/api/v1/parks?';
 
 function formatQueryParams(params){
   const queryItems = Object.keys(params)
@@ -18,7 +19,7 @@ function displayResults(responseJson) {
         <p>${responseJson.items[i].data.description}</p>
         <p>${responseJson.items[i].data.URL}</p>
         </li>`
-    )};
+    );};
   $('#results').removeClass('hidden');
 };
 
@@ -26,7 +27,9 @@ function displayResults(responseJson) {
 function getData(input, limit = 10) {
   const params = {
     stateCode: `${input}`,
-    maxResults: limit,
+    limit: limit,
+    // eslint-disable-next-line camelcase
+    api_key: apiKey,
   };
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
@@ -42,6 +45,7 @@ function getData(input, limit = 10) {
     })
     .then(responseJson => displayResults(responseJson))
     .catch(err => {
+      // eslint-disable-next-line no-undef
       $('#js-error-message').text(`Something went horribly wrong: ${err.message}`);
     });
 }
