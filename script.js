@@ -11,7 +11,7 @@ function formatQueryParams(params){
 }
 
 function displayResults(responseJson) {
-  //console.log(responseJson);
+  console.log(responseJson);
   $('#results-list').empty();
   for (let i = 0; i < responseJson.data.length; i++){
     $('#results-list').append(
@@ -25,7 +25,7 @@ function displayResults(responseJson) {
 
 
 function getData(input, limit = 10) {
-  const params = {
+  var params = {
     stateCode: `${input}`,
     limit: limit,
     // eslint-disable-next-line camelcase
@@ -34,7 +34,7 @@ function getData(input, limit = 10) {
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
 
-  //console.log('url');
+  console.log('url');
 
   fetch(url)
     .then(response => {
