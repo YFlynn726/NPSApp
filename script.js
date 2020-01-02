@@ -2,7 +2,7 @@
 'use strict';
 
 const apiKey = 'yXFguw0bPT2fEHLjTMoQ0pLDdsv5PGJ4z8p4IobD';
-const searchURL = 'https://developer.nps.gov/api/v1/parks?';
+const searchURL = 'https://developer.nps.gov/api/v1/parks';
 
 function formatQueryParams(params){
   const queryItems = Object.keys(params)
