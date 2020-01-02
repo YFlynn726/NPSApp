@@ -25,7 +25,7 @@ function displayResults(responseJson) {
 
 function getData(query, maxResults = 10) {
   const params = {
-    stateCode: '`{input}`' +  ',' +  '`${input}`',
+    stateCode: '`${input}`' +  ',' +  '`${input}`',
     part: 'data',
     maxResults,
   };
