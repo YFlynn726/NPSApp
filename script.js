@@ -26,7 +26,7 @@ function displayResults(responseJson) {
 function getData(query, maxResults = 10) {
   const params = {
     key: apiKey,
-    q: query,
+    stateCode: query,
     part: 'data',
     maxResults,
   };
