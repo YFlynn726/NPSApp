@@ -1,7 +1,7 @@
 'use strict';
 
-const apiKey = 'rFTc57REZXgLG3GyhDOGaXZyeXln31UGLRxhIxE8';
-const searchURL = 'https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=rFTc57REZXgLG3GyhDOGaXZyeXln31UGLRxhIxE8';
+//const apiKey = 'rFTc57REZXgLG3GyhDOGaXZyeXln31UGLRxhIxE8';
+const searchURL = 'https://developer.nps.gov/api/v1/parks?stateCode=NY%2COR&limit=10&api_key=yXFguw0bPT2fEHLjTMoQ0pLDdsv5PGJ4z8p4IobD';
 
 function formatQueryParams(params){
   const queryItems = Object.keys(params)
@@ -23,11 +23,10 @@ function displayResults(responseJson) {
 };
 
 
-function getData(query, maxResults = 10) {
+function getData(input, limit = 10) {
   const params = {
-    stateCode: '`${input}`' +  ',' +  '`${input}`',
-    part: 'data',
-    maxResults,
+    stateCode: `${input}`,
+    maxResults: limit,
   };
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
