@@ -26,11 +26,9 @@ function displayResults(responseJson) {
 function getData(query, maxResults = 10) {
   const params = {
     key: apiKey,
-    states: ${'input'},
-    part: 'data[]',
+    q: query,
+    part: 'data',
     maxResults,
-    parkCode:`${input}`
-
   };
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
